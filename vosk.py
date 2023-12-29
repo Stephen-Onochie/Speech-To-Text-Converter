@@ -3,11 +3,15 @@ import pyaudio
 
 # video tutorial => https://youtu.be/3Mga7_8bYpw?si=a04fIprhErF_qZm4
 
+# Thoughts => Vosk is good but kind of slow out the box
+# will experiment with DeepSpeech, AprilASR, etc
+
 # change file path to your computer
-voskFilePath = (r"F:\steph\Documents\Github\Speech-To-Text-Converter\vosk-model-small-en-us-0.15\vosk-model-small-en"
+small_model = (r"F:\steph\Documents\Github\Speech-To-Text-Converter\40MB-Vosk-English-Model\vosk-model-small-en"
                 r"-us-0.15")
 
-model = Model(voskFilePath)
+
+model = Model(small_model)
 recognizer = KaldiRecognizer(model, 16000)  # frequency
 
 mic = pyaudio.PyAudio()
@@ -20,10 +24,9 @@ while True:
     #     break
     if recognizer.AcceptWaveform(data):  # if model recognizes speech
         speech = recognizer.Result()
-        text = speech[14:-3] # get text from JSON output
+        text = speech[14:-3]  # get text from JSON output
 
-        if(text == "stop"):
+        if text == "stop":
             exit(1)
         else:
             print(text)
-
