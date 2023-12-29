@@ -8,6 +8,8 @@
 - Python (version 3.13 at the time of development)
 - PyTorch
 - Package Manager (Chocolatey for Windows or Homebrew for Mac)
-- FFmpeg
-- Whisper AI - Speech Model 1
+- FFmpeg 
+- Vosk (Realtime Speech Recognition) => pip install vosk
+- Whisper AI (Recorded Audio Files)
 - Pyaudio
+- ipywidgets
