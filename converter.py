@@ -19,5 +19,11 @@ while True:
     # if len(data) ==0:
     #     break
     if recognizer.AcceptWaveform(data):  # if model recognizes speech
-        text = recognizer.Result()
-        print(text[14:-3])
+        speech = recognizer.Result()
+        text = speech[14:-3] # get text from JSON output
+
+        if(text == "stop"):
+            exit(1)
+        else:
+            print(text)
+
